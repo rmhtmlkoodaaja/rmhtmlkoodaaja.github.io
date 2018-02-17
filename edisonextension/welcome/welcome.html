@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style>
+body {font-family: Arial, Helvetica, sans-serif;}
 #slideshow { 
     margin: 50px auto; 
     position: relative; 
@@ -15,6 +16,75 @@
     left: 10px; 
     right: 10px; 
     bottom: 10px; 
+}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
 }
     </style>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -74,14 +144,20 @@ setInterval(function() {
           <div class="col-md-6 col-lg-8">
           <h1 class="cover-heading">Laajennus Asennettu!</h1>
           <p class="lead">Tämän laajennuksen avulla pääset nopeasti Edison Työpöydälle vaivatta! Paina vaan Edison Nappia, se avataan automaattisesti ja kun valitset hiirellä tekstiä nettisivuilta, voit nopeasti luoda sivun hiiren oikean napin klikkauksella.</p>
-          <h2>Mitä Uutta? v1.2</h2>
-          <p class="lead"> Lisätty Autonavigointi kirjautumis-sivulle, jos ei ole kirjautunut Edisoniin (Avaa Wilma Pikalinkki) </p>
-          <br>
-          <br>
-          <h2>Mitä Uutta? v1.1.2</h2>
-          <p class="lead"> Lisätty Wilma Pikalinkki </p>
+          
+          <button id="myBtn" class="btn btn-primary">Mitä Uutta?</button>
             
                
+            <div id="slideshow">
+   <div>
+     <img src="macbook1.png" alt="AddressBar Hint">  
+   </div>
+  
+   <div>
+    <img src="macbook2.png" alt="RightClick Document Hint">
+   </div>
+  
+</div>
    
   
 
@@ -89,14 +165,71 @@ setInterval(function() {
        
                 
             </div>   
-            </div>
+            
           </div>
         </div>
       </div>
-       
      
     </section>
+<!-- The Modal -->
+<div id="myModal" class="modal">
 
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">x</span>
+      <h2>Mitä Uutta?</h2>
+    </div>
+    <div class="modal-body">
+      <h3>v1.2</h3>
+          <p class="lead"> Lisätty Autonavigointi kirjautumis-sivulle, jos ei ole kirjautunut Edisoniin (Avaa Wilma Pikalinkki) </p>
+          <br>
+          <h3>v1.1.2</h3>
+          <p class="lead"> Lisätty Wilma Pikalinkki </p>
+          <br>
+          <h3>v1.1.1</h2>
+          <p class="lead"> Lisätty Google Classroom Pikalinkki </p>
+          <br>
+          <h3>v1.1</h3>
+          <p class="lead"> Lisätty Googlen Palveluiden Pikalinkit </p>
+          <br>
+          <h3>v1.0</h3>
+          <p class="lead"> Lisätty Ikoni Selaimeen, jonka kautta pääsee Edison Työpöydälle </p>
+          <br>
+          <h3>v0.9-beta</h3>
+          <p class="lead"> Laajennuksen Kehitys alkoi </p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
     
             
 
