@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style>
+  .version  {
+
+
+    color: black
+  }
+  .desc {
+    color: black
+  }
 #slideshow { 
     margin: 50px auto; 
     position: relative; 
@@ -15,7 +23,77 @@
     left: 10px; 
     right: 10px; 
     bottom: 10px; 
+
 }
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
     </style>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,6 +124,7 @@ setInterval(function() {
     .end()
     .appendTo('#slideshow');
 }, 3000);
+
 </script>
   </head>
   <body style="">
@@ -73,11 +152,82 @@ setInterval(function() {
           <div class="row">
             <div class="col-md-6 col-lg-8">
               <h1 class="cover-heading">Helppokäyttöinen, Yksinkertainen ja Nopea</h1>
-              <p class="lead">Laajennus auttaa sinua päästä nopeasti Edison Työpöydälle ilman näppäilyä osoiteriville ja vaivatta! Paina vaan Edison Nappia, se avataan automaattisesti ja kun valitset hiirellä tekstiä nettisivuilta, voit nopeasti luoda asiakirjan tai diaesityksen hiiren oikean napin klikkauksella. (Lähi)Tulevaisuudessa tulee ominaisuus "Edison Työpöydän Taustavärin vaihtaja".</p>   
+              <p class="lead">Laajennus auttaa sinua päästä nopeasti Edison Työpöydälle ilman näppäilyä osoiteriville ja vaivatta! Paina vaan Edison Nappia, se avataan automaattisesti ja kun oikeaklikkaat, niin voit päästä Googlen palveluihin, Officen palveluihin, Wilmaan ja Sanoma Pro:hon. Paljon odotettu ominaisuus on nyt kehitetty, eli nyt voit vaihtaa Edison Työpöydän taustavärin.</p>   
               <br>
               <a href="https://chrome.google.com/webstore/detail/edison-laajennus/affkfbcgekmjimakdogkepfcgmimebnm" class="btn btn-primary"> <img src="https://www.google.com/images/icons/product/chrome_web_store-32.png"> Lataa Chrome Web Storesta </a>
+              
+              
               <a href="https://addons.mozilla.org/fi/firefox/addon/edison-laajennus/" class="btn btn-primary"> <img src="firefox.png"> Lataa Firefox Add-onsista </a>
-               
+              <br>
+              <br>
+              <button id="myBtn" class="btn btn-primary">Mitä Uutta?</button>
+              
+              
+              <div id="myModal" class="modal">
+
+                  <!-- Modal content -->
+                  <div class="modal-content">
+                    <div class="modal-header" >
+                      <span class="close">x</span>
+                      <h2>Mitä Uutta?</h2>
+                    </div>
+                    
+                    
+                    
+                    
+                    <div class="modal-body" style="overflow-y: scroll; height:700px;">
+                        <h3 class="version">v1.3</h3>
+                        <p class="desc"> Ominaisuus, jonka avulla voi vaihtaa Edison Työpöydän taustaväriä. Sen voi vaihtaa laajennuksen asetuksista </p>
+                        <br>
+                      <h3 class="version">v1.2</h3>
+                          <p class="desc"> Avaa Wilma pikalinkkiin on lisätty Autonavigointi kirjautumis-sivulle, jos ei ole kirjautunut Edisoniin ja Poiston jälkeen pieni kysely </p>
+                          <br>
+                          <h3 class="version">v1.1.2</h3>
+                          <p class="desc"> Lisätty Wilma Pikalinkki </p>
+                          <br>
+                          <h3 class="version">v1.1.1</h2>
+                          <p class="desc"> Lisätty Google Classroom Pikalinkki </p>
+                          <br>
+                          <h3 class="version">v1.1</h3>
+                          <p class="desc"> Lisätty Googlen Palveluiden Pikalinkit </p>
+                          <br>
+                          <h3 class="version">v1.0</h3>
+                          <p class="desc"> Lisätty Ikoni Selaimeen, jonka kautta pääsee Edison Työpöydälle </p>
+                          <br>
+                          <h3 class="version">v0.9-beta</h3>
+                          <p class="desc"> Laajennuksen Kehitys alkoi </p>
+                    </div>
+                  </div>
+                
+                </div>
+                
+                <script>
+                // Get the modal
+                var modal = document.getElementById('myModal');
+                
+                // Get the button that opens the modal
+                var btn = document.getElementById("myBtn");
+                
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+                
+                // When the user clicks the button, open the modal 
+                btn.onclick = function() {
+                    modal.style.display = "block";
+                }
+                
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
+                
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+                </script>
                <div id="slideshow">
    <div>
      <img src="macbook1.png" alt="AddressBar Hint">  
@@ -86,6 +236,12 @@ setInterval(function() {
    <div>
     <img src="macbook2.png" alt="RightClick Document Hint">
    </div>
+   <div>
+      <img src="macbook3.png" alt="ChangeBG Settings Hint">
+     </div>
+     <div>
+       <img src="macbook4.png" alt="BGChanged Hint">
+       </div>
   
 </div>
                
